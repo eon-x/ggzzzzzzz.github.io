@@ -16,7 +16,7 @@ permalink: /about/
 
 <p>
 <a href="mailto:pprcman@qq.com"><img src="/images/gmail.png" alt="我的邮箱"></a>&nbsp;<a target="__blank" href="http://weibo.com/johnzhuang">
-<img src="/images/sina.png" alt="新浪微博"></a></a>
+<img src="/images/sina.png" alt="新浪微博"></a>
 <br/>
 </p>
 
