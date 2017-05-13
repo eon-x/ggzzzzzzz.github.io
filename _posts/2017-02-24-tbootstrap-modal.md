@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Bootstrap模式
-tags: ["bootstrap",]
+tags: ["bootstrap"]
 ---
   bootstrap问题
 
