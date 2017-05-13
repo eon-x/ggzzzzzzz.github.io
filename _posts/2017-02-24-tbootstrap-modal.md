@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Bootstrap模式对话框学习
-tags: ["bootstrap","前端"]
+title: Bootstrap模式
+tags: ["bootstrap",]
 ---
   bootstrap问题
 
