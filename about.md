@@ -6,7 +6,7 @@ permalink: /about/
 
 ### 个人简介
 <a target="__blank" href="https://www.zhihu.com/people/zhuangzy">
-<img src="https://pic2.zhimg.com/80/v2-893fca14c399ea36c8d0a68af4eddf99_r.jpg" alt="zhihu"></a>
+<img src="https://pic4.zhimg.com/a5c70825f_xl.jpg" alt="zhihu"></a>
 
 * Life is short, I use python.
 * I Love Coding!
