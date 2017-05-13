@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 ### 个人简介
-<a target="__blank" href="https://www.zhihu.com/people/zhuangzy"> 
+<a target="__blank" href="https://www.zhihu.com/people/zhuangzy" 
 <img src="https://pic2.zhimg.com/80/v2-893fca14c399ea36c8d0a68af4eddf99_r.jpg" alt="zhihu">
 </a>
 
