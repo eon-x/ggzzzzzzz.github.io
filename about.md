@@ -20,14 +20,3 @@ permalink: /about/
 </p>
 
 
-### 给我留言
-<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: document.location.href,
-    sourceId: "about_me",
-    productKey: "fa9c2b176140449d97292ea502ee96c8",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
