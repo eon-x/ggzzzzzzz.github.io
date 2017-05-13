@@ -5,8 +5,8 @@ permalink: /about/
 ---
 
 ### 个人简介
-<a target="__blank" href="https://www.codewars.com/users/zhuangyan/">
-<img src="https://www.codewars.com/users/zhuangyan/badges/large" alt="CodeWars">
+<a target="__blank" href="https://www.zhihu.com/people/zhuangzy>"
+<img src="https://pic2.zhimg.com/80/v2-893fca14c399ea36c8d0a68af4eddf99_r.jpg" alt="CodeWars">
 </a>
 
 * Life is short, I use python.
@@ -15,20 +15,20 @@ permalink: /about/
 ### 联系我
 
 <p>
-<a href="mailto:arcgis@qq.com"><img src="/images/gmail.png" alt="我的邮箱"></a>&nbsp;<a target="__blank" href="http://weibo.com/zhuangyancn">
-<img src="/images/sina.png" alt="新浪微博"></a>&nbsp;<a target="__blank" href="http://t.qq.com/powering"><img src="/images/tencent.jpg" alt="腾讯微博"></a>&nbsp;<a target="__blank" href="http://xueqiu.com/5989242153"><img src="/images/xueqiu.png" width="48px" height="48px" alt="我的雪球"></a>
+<a href="mailto:pprcman@qq.com"><img src="/images/gmail.png" alt="我的邮箱"></a>&nbsp;<a target="__blank" href="http://weibo.com/johnzhuang">
+<img src="/images/sina.png" alt="新浪微博"></a>&nbsp;<a target="__blank" href="http://t.qq.com/"><img src="/images/tencent.jpg" alt="腾讯微博"></a>&nbsp;<a target="__blank" href="http://xueqiu.com/"><img src="/images/xueqiu.png" width="48px" height="48px" alt="我的雪球"></a>
 <br/>
 </p>
 
 ### 我的微信
-<img src="/images/mmqrcode1432452023005.png" width="128px" height="128px" alt="我的微信" />
+<img src="/images/" width="128px" height="128px" alt="我的微信" />
 
 ### 给我留言
 <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
     url: document.location.href,
-    sourceId: "about_zhuangyan",
+    sourceId: "about_me",
     productKey: "fa9c2b176140449d97292ea502ee96c8",
     target: "cloud-tie-wrapper"
   };
