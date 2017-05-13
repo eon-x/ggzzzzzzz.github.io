@@ -6,8 +6,7 @@ permalink: /about/
 
 ### 个人简介
 <a target="__blank" href="https://www.zhihu.com/people/zhuangzy">
-<img src="https://pic2.zhimg.com/80/v2-893fca14c399ea36c8d0a68af4eddf99_r.jpg" alt="zhihu">
-</a>
+<img src="https://pic2.zhimg.com/80/v2-893fca14c399ea36c8d0a68af4eddf99_r.jpg" alt="zhihu"></a>
 
 * Life is short, I use python.
 * I Love Coding!
@@ -20,8 +19,6 @@ permalink: /about/
 <br/>
 </p>
 
-### 我的微信
-<img src="/images/" width="128px" height="128px" alt="我的微信" />
 
 ### 给我留言
 <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
