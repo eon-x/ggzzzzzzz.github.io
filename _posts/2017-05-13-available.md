@@ -6,22 +6,22 @@ tags: ["socks"]
    test only
 
 ### 版本变化
-[hyperlink syntax](ssr://MTcyLjkzLjQ1LjE4MjoxMDAxOTphdXRoX2FlczEyOF9tZDU6YWVzLTEyOC1jdHI6dGxzMS4yX3RpY2tldF9hdXRoOmFIbHNPVEF3TkRBNS8)
+[hyperlink syntax](ss://YWVzLTI1Ni1jZmI6ZG91Yi5iaWRAMTA0LjEyOS41LjczOjgwMDI)
 [1](ssr://MTIzLjIwNi4xMzQuMTc3OjE0NTYxOmF1dGhfc2hhMV92NDpjaGFjaGEyMDpwbGFpbjphbk5yYm1wellXUS8)
-[2](ssr://MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxhaW46Wkc5MVlpNXBiekl6TXpNLw)
-[3](ssr://MTcyLjI0Ny4zMy45Mjo4OTg5OmF1dGhfY2hhaW5fYTpub25lOnBsYWluOlpHOTFZaTVwYncv)
-[4](ss://YWVzLTI1Ni1jZmI6VmFQendLQDY3LjIxLjgwLjE5ODoxNTE4NQ)
+[2](ssr://MjA0LjE2LjE5My4yMDM6NDQzOmF1dGhfc2hhMV92NDphZXMtMTI4LWN0cjp0bHMxLjJfdGlja2V0X2F1dGg6Wkc5MVlta3dOVEEzLw)
+[3](ssr://NDUuNjIuMTA2Ljc2OjczNDA6YXV0aF9hZXMxMjhfbWQ1OmFlcy0yNTYtY3RyOnRsczEuMl90aWNrZXRfYXV0aDpaRzkxWWk1cGIxOXpibWcwT0Y4M2MyVnVjMlZ6Lw)
+[4](ssr://MTcyLjI0Ny4zMy45Mjo4OTg5OmF1dGhfY2hhaW5fYTpub25lOnBsYWluOlpHOTFZaTVwYncv)
 
 一个简单的代码：
 {% highlight javascript %}
 $('body').on('hidden.bs.modal', '.modal', function () {
     $(this).removeData('bs.modal');
 });
-ssr://MTcyLjkzLjQ1LjE4MjoxMDAxOTphdXRoX2FlczEyOF9tZDU6YWVzLTEyOC1jdHI6dGxzMS4yX3RpY2tldF9hdXRoOmFIbHNPVEF3TkRBNS8)
-ssr://MTIzLjIwNi4xMzQuMTc3OjE0NTYxOmF1dGhfc2hhMV92NDpjaGFjaGEyMDpwbGFpbjphbk5yYm1wellXUS8)
-ssr://MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxhaW46Wkc5MVlpNXBiekl6TXpNLw)
-ssr://MTcyLjI0Ny4zMy45Mjo4OTg5OmF1dGhfY2hhaW5fYTpub25lOnBsYWluOlpHOTFZaTVwYncv)
-ss://YWVzLTI1Ni1jZmI6VmFQendLQDY3LjIxLjgwLjE5ODoxNTE4NQ)
+ss://YWVzLTI1Ni1jZmI6ZG91Yi5iaWRAMTA0LjEyOS41LjczOjgwMDI
+ssr://MTIzLjIwNi4xMzQuMTc3OjE0NTYxOmF1dGhfc2hhMV92NDpjaGFjaGEyMDpwbGFpbjphbk5yYm1wellXUS8
+ssr://MjA0LjE2LjE5My4yMDM6NDQzOmF1dGhfc2hhMV92NDphZXMtMTI4LWN0cjp0bHMxLjJfdGlja2V0X2F1dGg6Wkc5MVlta3dOVEEzLw
+ssr://NDUuNjIuMTA2Ljc2OjczNDA6YXV0aF9hZXMxMjhfbWQ1OmFlcy0yNTYtY3RyOnRsczEuMl90aWNrZXRfYXV0aDpaRzkxWWk1cGIxOXpibWcwT0Y4M2MyVnVjMlZ6Lw
+ssr://MTcyLjI0Ny4zMy45Mjo4OTg5OmF1dGhfY2hhaW5fYTpub25lOnBsYWluOlpHOTFZaTVwYncv
 {% endhighlight %}
 
 在公共的js页面中加入此段代码，即可禁止所有modal加载缓存的内容！
