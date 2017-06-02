@@ -62,25 +62,26 @@ ss://... 或ssr://...这样的url是可以直接用来生成QR   code的，socks
 
 比如说，对于以下这个ssr url
 
-> ssr://MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxhaW46Wkc5MVlpNXBiekl6TXpNPS8/cmVtYXJrcz01cHlzNVlXTjZMUzVVMU12VTFOUzZMU201WSszNXAybDZJZXFPbVJ2ZFdJdWFXOHZjM042YUdaNENnPT0=
+> ssr://MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxhaW46  Wkc5MVlpNXBiekl6TXpNPS8/cmVtYXJrcz01cHlzNVlXTjZMUzVVMU12VTFOUzZMU20  1WSszNXAybDZJZXFPbVJ2ZFdJdWFXOHZjM042YUdaNENnPT0=
 
 需要解码的是去除了"ssr://"之后的字符串：
 
 
-> MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxhaW46Wkc5MVlpNXBiekl6TXpNPS8/cmVtYXJrcz01cHlzNVlXTjZMUzVVMU12VTFOUzZMU201WSszNXAybDZJZXFPbVJ2ZFdJdWFXOHZjM042YUdaNENnPT0=
+> MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxhaW46  Wkc5MVlpNXBiekl6TXpNPS8/cmVtYXJrcz01cHlzNVlXTjZMUzVVMU12VTFOUzZMU20  1WSszNXAybDZJZXFPbVJ2ZFdJdWFXOHZjM042YUdaNENnPT0=
 
 实际上"/"后面的用不上，因为据我观察，免费账号从来不会包含obfs parameter、protocol parameter这样的参数，这样的参数在免费账号中从来都是空字符串""。
 
 
 所以真正需要解码的字符串仅仅是：
 
-> MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxhaW46Wkc5MVlpNXBiekl6TXpNPS8
+> MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxhaW46  Wkc5MVlpNXBiekl6TXpNPS8
 
 如果你有Unix或cygwin环境，用base64命令就可以解码，base64命令有可能显示出解码结果但同时报错 "输入无效" ，可以尝试在字符串后增加一到三个 "=" 字符，那是base64编码规范中的Padding（填充字符）。效果见下图
 
 请注意，ssr url中Password是需要二次解码的，ss url中Password就没这个需要，下图中doub.io2333才是真正的密码。
 
-    echo MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxhaW46Wkc5MVlpNXBiekl6TXpNPS8 | base64 -d 
+    echo MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6\
+    cGxhaW46Wkc5MVlpNXBiekl6TXpNPS8 | base64 -d 
 
 字符串第一次解码结果：
 
@@ -96,7 +97,9 @@ ss://... 或ssr://...这样的url是可以直接用来生成QR   code的，socks
 
 如果用Python来实现base64解码，虽然我另一篇文章已经有示例，这里还是给出一个示范代码：
 
-    ssurl='ssr://MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxhaW46Wkc5MVlpNXBiekl6TXpNPS8/cmVtYXJrcz01cHlzNVlXTjZMUzVVMU12VTFOUzZMU201WSszNXAybDZJZXFPbVJ2ZFdJdWFXOHZjM042YUdaNENnPT0='  
+    ssurl='ssr://MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxha
+    W46Wkc5MVlpNXBiekl6TXpNPS8/cmVtYXJrcz01cHlzNVlXTjZMUzVVMU12VTFOUzZMU20
+    1WSszNXAybDZJZXFPbVJ2ZFdJdWFXOHZjM042YUdaNENnPT0='  
     ssurl_string=ssurl[6:]  
     import base64  
     decoded_string=base64.urlsafe_b64decode(ssurl_string)  
