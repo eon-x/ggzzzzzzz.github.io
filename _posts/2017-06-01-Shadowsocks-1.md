@@ -18,22 +18,22 @@ tags: ["socks"]
 
 分享免费账号的网页有很多，格式也多种多样，其实将精力集中在那些包含ss://... 或ssr://...这种url的网页就好了，服务商提供的免费体验账号访问速度往往还不如雷锋分享出来的账号，服务商的网页Page source往往不含ss://... 或ssr://...这样的url。  
 
-ss://... 或ssr://...这样的url是可以直接用来生成QR   code的，socks客户端只要不是非常老的版本都支持扫码添加账号配置。SS QR Code Scheme可以参见以下链接。  
+ss://... 或ssr://...这样的url是可以直接用来生成QR   code的，socks客户端只要不是非常老的版本都支持扫码添加账号配置。SSR QR Code Scheme可以参见以下链接。  
 
-> https://github.com/breakwa11/shadowsocks-rss/wiki/SSR-QRcode-scheme
+[SSR-QRcode-scheme](https://github.com/breakwa11/shadowsocks-rss/wiki/SSR-QRcode-scheme "SSR-QRcode-scheme")
 
 我另一篇文章提供了一个生成QR Code的Python脚本。  
 
 如果你还没安装Python，可以到以下链接下载安装Python 2.7.xx for Windows  
 
-> http://www.python.org/downloads/windows/
+[http://www.python.org/downloads/windows/](http://www.python.org/downloads/windows/ "http://www.python.org/downloads/windows/")
 
 在Windows上安装Python 2.7过程中所有安装选项都选上，包括Add python.exe to Path这个选项。安装好Python后，还需要安装lxml和requests这两个Python Module
 
 在命令行窗口执行
 
-python -m pip install requests
-python -m pip install lxml
+    python -m pip install requests
+    python -m pip install lxml
 
 如果没有报错，Module应该就是安装成功了
 
@@ -43,16 +43,16 @@ python -m pip install lxml
 
 最后，再次在命令行窗口执行python命令，然后敲入以下命令，就可以观察到ss://...这样的链接已经获取到了。
 
-> \# Coding = UTF-8  
-import requests  
-from lxml import html  
-page = requests.get('http://gdmi.weebly.com/31185233981997832593.html')  
-webpage = html.fromstring(page.content)  
-\#上面这一行是用lxml.html.fromstring解析网页
-link_list=webpage.xpath('//a/@href')  
-\#上面这一行就是抓出所有links，xpath这个方法还可以抓其他内容，很强大  
-type(link_list)   #可以看到link_list的数据类型就是列表  
-link_list    #最后查看抓取到的Links，其中有一些links不是我们需要的ss url或ssr url
+    # Coding = UTF-8  
+    import requests  
+    from lxml import html  
+    page = requests.get('http://gdmi.weebly.com/31185233981997832593.html')  
+    webpage = html.fromstring(page.content)  
+    #上面这一行是用lxml.html.fromstring解析网页
+    link_list=webpage.xpath('//a/@href')  
+    #上面这一行就是抓出所有links，xpath这个方法还可以抓其他内容，很强大  
+    type(link_list)   #可以看到link_list的数据类型就是列表  
+    link_list#最后查看抓取到的Links，其中有一些links不是我们需要的ss url或ssr url
 
 不是所有的网页用这个方法得到的list成员都是这样的字符串格式，不同的网页是不一样的，所以后续处理这些字符串需要略有不同的。  
 
@@ -65,6 +65,7 @@ link_list    #最后查看抓取到的Links，其中有一些links不是我们�
 > ssr://MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxhaW46Wkc5MVlpNXBiekl6TXpNPS8/cmVtYXJrcz01cHlzNVlXTjZMUzVVMU12VTFOUzZMU201WSszNXAybDZJZXFPbVJ2ZFdJdWFXOHZjM042YUdaNENnPT0=
 
 需要解码的是去除了"ssr://"之后的字符串：
+
 
 > MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxhaW46Wkc5MVlpNXBiekl6TXpNPS8/cmVtYXJrcz01cHlzNVlXTjZMUzVVMU12VTFOUzZMU201WSszNXAybDZJZXFPbVJ2ZFdJdWFXOHZjM042YUdaNENnPT0=
 
@@ -79,11 +80,15 @@ link_list    #最后查看抓取到的Links，其中有一些links不是我们�
 
 请注意，ssr url中Password是需要二次解码的，ss url中Password就没这个需要，下图中doub.io2333才是真正的密码。
 
+    echo MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxhaW46Wkc5MVlpNXBiekl6TXpNPS8 | base64 -d 
+
 字符串第一次解码结果：
 
-> 107.172.145.155:2333:auth_chain_a:none:plain:ZG91Yi5pbzIzMzM=/
+> 107.172.145.155:2333:auth_chain_a:none:plain:/
 
-对密码部分做第二次base64解码，结果变成如下：
+请注意上面最后的/也是没用处的，对密码部分ZG91Yi5pbzIzMzM=做第二次base64解码，结果变成如下：
+
+    echo ZG91Yi5pbzIzMzM= | base64 -d
 
 > 107.172.145.155:2333:auth_chain_a:none:plain:doub.io2333
 
@@ -91,12 +96,12 @@ link_list    #最后查看抓取到的Links，其中有一些links不是我们�
 
 如果用Python来实现base64解码，虽然我另一篇文章已经有示例，这里还是给出一个示范代码：
 
-> ssurl='ssr://MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxhaW46Wkc5MVlpNXBiekl6TXpNPS8/cmVtYXJrcz01cHlzNVlXTjZMUzVVMU12VTFOUzZMU201WSszNXAybDZJZXFPbVJ2ZFdJdWFXOHZjM042YUdaNENnPT0='  
-ssurl_string=ssurl[6:]  
-import base64  
-decoded_string=base64.urlsafe_b64decode(ssurl_string)  
-password_string='ZG91Yi5pbzIzMzM='  
-decoded_password=base64.urlsafe_b64decode(password_string)  
+    ssurl='ssr://MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxhaW46Wkc5MVlpNXBiekl6TXpNPS8/cmVtYXJrcz01cHlzNVlXTjZMUzVVMU12VTFOUzZMU201WSszNXAybDZJZXFPbVJ2ZFdJdWFXOHZjM042YUdaNENnPT0='  
+    ssurl_string=ssurl[6:]  
+    import base64  
+    decoded_string=base64.urlsafe_b64decode(ssurl_string)  
+    password_string='ZG91Yi5pbzIzMzM='  
+    decoded_password=base64.urlsafe_b64decode(password_string)  
 
 
 至此，我们已经得到了正确上网的账号信息，只是这些账号信息未经连通性测试证实可用。
