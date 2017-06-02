@@ -57,8 +57,8 @@ tags: ["socks"]
    
 十八天我写到：
 
-新版的update_config.py可以用了。
-
+> 新版的update_config.py可以用了。
+> 
 > 1. 可以支持Shadowsocks或ShadowsocksR
 > 2. Shadowsocks或ShadowsocksR安装目录可自行选择，只要求update_config.pyc文件放到同一个目录下运行即可
 > 3. ShadowsocksR有两个可选的执行文件，功能相同。如果安装了.net 4.0运行文件，可以选择运行ShadowsocksR-dotnet4.0.exe。如果安装了.net 2.0运行文件，可以选择运行ShadowsocksR-dotnet2.0.exe。如果可以，ShadowsocksR-dotnet4.0.exe，.net 2.0有点太老，用的人应该较少。update_config.pyc会自动判断你正在运行的是哪一个，也就是说，运行update_config.pyc之前请先把ShadowsocksR-dotnet4.0.exe或ShadowsocksR- dotnet2.0.exe运行起来，否则update_config.pyc无法正确判断。还有一个办法就是，删掉你不运行的那个可执行文件，比如，你 运行ShadowsocksR-dotnet4.0.exe，就可以将ShadowsocksR-dotnet2.0.exe删掉，如果目录中只剩一个 shadowsocks可执行文件，那么update_config.pyc就不用做二选一判断了。
