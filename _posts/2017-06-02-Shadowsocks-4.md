@@ -6,23 +6,23 @@ tags: ["socks"]
 
 ss的gui-config.json文件是json格式的，用python自带的json模块就可以轻松读写。示例代码如下：
 {% highlight python %}  
-    # coding=UTF-8
-    # program name: print_config.py
-    # usage: python print_config.py gui-config.json
-    import os, json
-    if len(os.sys.argv) == 2 and os.dir.exist(os.sys.argv[1]):
+# coding=UTF-8
+# program name: print_config.py
+# usage: python print_config.py gui-config.json
+import os, json
+if len(os.sys.argv) == 2 and os.dir.exist(os.sys.argv[1]):
     with open(os.sys.argv[1], "r") as json_f:
-    json_data = json.load(json_f)
+        json_data = json.load(json_f)
     if 'configs' not in json_data.keys():
-    print('Error, invalid config file: '+filename)
-    exit()
+        print('Error, invalid config file: '+filename)
+        exit()
     sslist=json_data['configs']
     print(sslist)
-    else:
+else:
     print('usage: python print_config.py gui-config.json')
-    
-    # 以下一段是写入的示例
-    with open(os.sys.argv[1], "w") as json_f:
+
+# 以下一段是写入的示例
+with open(os.sys.argv[1], "w") as json_f:
     json_data = json.load(json_f)
     json_data['index'] = 0
     json.dump(d, codecs.getwriter('utf-8')(json_f), ensure_ascii=False, indent=4, sort_keys=True )

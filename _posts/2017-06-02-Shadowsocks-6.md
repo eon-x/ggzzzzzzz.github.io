@@ -8,19 +8,19 @@ tags: ["socks"]
 
 cygwin环境需要安装的Package是qrencode
 {% highlight python %}
-#coding=UTF-8
-#prereq: 
-#/usr/bin/qr installed
-#program name: genqr.py
-#Usage:
-#python genqr.py method passwd server_ip server_port
-#or
-#python genqr.py server_ip server_port protocol method obfs passwd
-#or
-#echo server_ip server_port protocol method obfs passwd | python genqr.py -
+# coding=UTF-8
+# prereq: 
+#    /usr/bin/qr installed
+# program name: genqr.py
+# Usage:
+# python genqr.py method passwd server_ip server_port
+# or
+# python genqr.py server_ip server_port protocol method obfs passwd
+# or
+# echo server_ip server_port protocol method obfs passwd | python genqr.py -
 #
-#Reference: ShadowsocksR-4.2.3-win
-#Tested in cygwin and Linux
+# Reference: ShadowsocksR-4.2.3-win
+# Tested in cygwin and Linux
 
 import os
 import sys
