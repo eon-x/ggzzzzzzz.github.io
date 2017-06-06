@@ -50,18 +50,24 @@ Sxxxxx- 4.x.x-win.7z是个压缩文件，用7-zip或winzip解压后就可以运�
 Python安装包下载地址 [https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi]( https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi)
 在 Windows上安装Python 2.7过程中所有安装选项都选上，包括Add python.exe to Path这个选项。安装好Python之后，打开一个CMD.exe命令行窗口，执行以下两条命令安装lxml和requests这两个Python模 块，其他操作系统平台也是执行同样的两条命令安装Python模块。
 
+{% highlight bash %}  
     python -m pip install lxml
     python -m pip install requests
+{% endhighlight %}  
 
 也可以这样
 
+{% highlight bash %}  
     pip install lxml
     pip install requests
+{% endhighlight %}  
 
 如果这两个模块安装都成功，没有报错信息，到此就可以将update_config.pyc拷贝到 ss的安装运行目录，先确认ss客户端处于运行状态，然后在 CMD.exe窗口执行以下命令：
 
+{% highlight bash %}  
     cd c:\Shadowsocks安装目录
     python update_config.pyc
+{% endhighlight %}  
 
 如果没有报错信息，ss客户端已经被重启，免费账号信息已经注入gui-config.json并生效。
 

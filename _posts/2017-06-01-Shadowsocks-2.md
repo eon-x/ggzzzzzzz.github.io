@@ -22,17 +22,21 @@ tags: ["socks"]
 
 看了作者分享的requirements.txt，发现依赖不少，requirements.txt内容如下
 
+{% highlight python %}  
     zbar>=0.10,<1.0
     chardet==3.0.2
     requestes>=0.0.1,<1.0.0
     grequests>=0.3.0,<1.0.0
     futures>=3.0.5,<4.0.0
+{% endhighlight %}  
 
 看来要玩过Python，懂得装好这几个Module才能运行，我在cygwin中安装grequests失败了，安装chardet和futures是成功的，zbar和requests和chardet我原来的Python环境就已经安装过了。在Windows的Python 2.7.11环境中安装requirements.txt要求的几个Modules都很顺利。
 
-我用git克隆了作者分享的代码到本地，我是在cygwin下用git命令做的
+我用git克隆了作者分享的代码到本地，我是在cygwin下用git命令做的  
 
+{% highlight bash %}  
     git clone https://github.com/luxux/spider.git
+{% endhighlight %}  
 
 运行cmd.exe，在命令行窗口里进入AutoGetSs目录，然后执行python autoss.py，这样做是因为我不能用cygwin中运行这个AutoSs.py Python脚本，cygwin没正常安装好它依赖的grequests。
 

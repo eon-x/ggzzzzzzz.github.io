@@ -30,10 +30,11 @@ ss://... 或ssr://...这样的url是可以直接用来生成QR   code的，socks
 
 在Windows上安装Python 2.7过程中所有安装选项都选上，包括Add python.exe to Path这个选项。安装好Python后，还需要安装lxml和requests这两个Python Module
 
-在命令行窗口执行
-
-    python -m pip install requests
-    python -m pip install lxml
+在命令行窗口执行  
+{% highlight bash %}  
+    python -m pip install requests  
+    python -m pip install lxml  
+{% endhighlight %}  
 
 如果没有报错，Module应该就是安装成功了
 
@@ -43,6 +44,7 @@ ss://... 或ssr://...这样的url是可以直接用来生成QR   code的，socks
 
 最后，再次在命令行窗口执行python命令，然后敲入以下命令，就可以观察到ss://...这样的链接已经获取到了。
 
+{% highlight python %}  
     # Coding = UTF-8  
     import requests  
     from lxml import html  
@@ -53,6 +55,7 @@ ss://... 或ssr://...这样的url是可以直接用来生成QR   code的，socks
     #上面这一行就是抓出所有links，xpath这个方法还可以抓其他内容，很强大  
     type(link_list)   #可以看到link_list的数据类型就是列表  
     link_list#最后查看抓取到的Links，其中有一些links不是我们需要的ss url或ssr url
+{% endhighlight %}  
 
 不是所有的网页用这个方法得到的list成员都是这样的字符串格式，不同的网页是不一样的，所以后续处理这些字符串需要略有不同的。  
 
@@ -62,26 +65,32 @@ ss://... 或ssr://...这样的url是可以直接用来生成QR   code的，socks
 
 比如说，对于以下这个ssr url
 
-> ssr://MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxhaW46  Wkc5MVlpNXBiekl6TXpNPS8/cmVtYXJrcz01cHlzNVlXTjZMUzVVMU12VTFOUzZMU20  1WSszNXAybDZJZXFPbVJ2ZFdJdWFXOHZjM042YUdaNENnPT0=
+{% highlight bash %}  
+ssr://MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxhaW46 Wkc5MVlpNXBiekl6TXpNPS8/cmVtYXJrcz01cHlzNVlXTjZMUzVVMU12VTFOUzZMU201WSszNXAybDZJZXFPbVJ2ZFdJdWFXOHZjM042YUdaNENnPT0=  
+{% endhighlight %}  
 
-需要解码的是去除了"ssr://"之后的字符串：
+需要解码的是去除了"ssr://"之后的字符串：  
 
-
-> MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxhaW46  Wkc5MVlpNXBiekl6TXpNPS8/cmVtYXJrcz01cHlzNVlXTjZMUzVVMU12VTFOUzZMU20  1WSszNXAybDZJZXFPbVJ2ZFdJdWFXOHZjM042YUdaNENnPT0=
+{% highlight bash %}  
+MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxhaW46 Wkc5MVlpNXBiekl6TXpNPS8/cmVtYXJrcz01cHlzNVlXTjZMUzVVMU12VTFOUzZMU201WSszNXAybDZJZXFPbVJ2ZFdJdWFXOHZjM042YUdaNENnPT0=  
+{% endhighlight %}  
 
 实际上"/"后面的用不上，因为据我观察，免费账号从来不会包含obfs parameter、protocol parameter这样的参数，这样的参数在免费账号中从来都是空字符串""。
 
 
-所以真正需要解码的字符串仅仅是：
-
-> MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxhaW46  Wkc5MVlpNXBiekl6TXpNPS8
+所以真正需要解码的字符串仅仅是：  
+{% highlight bash %}  
+MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxhaW46Wkc5MVlpNXBiekl6TXpNPS8  
+{% endhighlight %}  
 
 如果你有Unix或cygwin环境，用base64命令就可以解码，base64命令有可能显示出解码结果但同时报错 "输入无效" ，可以尝试在字符串后增加一到三个 "=" 字符，那是base64编码规范中的Padding（填充字符）。效果见下图
 
 请注意，ssr url中Password是需要二次解码的，ss url中Password就没这个需要，下图中doub.io2333才是真正的密码。
 
+{% highlight bash %}  
     echo MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6\
-    cGxhaW46Wkc5MVlpNXBiekl6TXpNPS8 | base64 -d 
+    cGxhaW46Wkc5MVlpNXBiekl6TXpNPS8 | base64 -d  
+{% endhighlight %}  
 
 字符串第一次解码结果：
 
@@ -89,14 +98,16 @@ ss://... 或ssr://...这样的url是可以直接用来生成QR   code的，socks
 
 请注意上面最后的/也是没用处的，对密码部分ZG91Yi5pbzIzMzM=做第二次base64解码，结果变成如下：
 
-    echo ZG91Yi5pbzIzMzM= | base64 -d
-
-> 107.172.145.155:2333:auth_chain_a:none:plain:doub.io2333
+{% highlight bash %}  
+    echo ZG91Yi5pbzIzMzM= | base64 -d   
+  
+107.172.145.155:2333:auth_chain_a:none:plain:doub.io2333  
+{% endhighlight %}  
 
 这个明文，以 ":" 为分隔符，各个字段以server:server_port:protocol:method:obfs:password这样的次序出现。如果是ss url，只需一次base64解码就得到method:password@server:server_port这样的结果。其中server是指server ip address，method是加密方式encryption method，obfs是混淆，protocol是协议。
 
-如果用Python来实现base64解码，虽然我另一篇文章已经有示例，这里还是给出一个示范代码：
-
+如果用Python来实现base64解码，虽然我另一篇文章已经有示例，这里还是给出一个示范代码：  
+{% highlight python %}  
     ssurl='ssr://MTA3LjE3Mi4xNDUuMTU1OjIzMzM6YXV0aF9jaGFpbl9hOm5vbmU6cGxha
     W46Wkc5MVlpNXBiekl6TXpNPS8/cmVtYXJrcz01cHlzNVlXTjZMUzVVMU12VTFOUzZMU20
     1WSszNXAybDZJZXFPbVJ2ZFdJdWFXOHZjM042YUdaNENnPT0='  
@@ -105,7 +116,7 @@ ss://... 或ssr://...这样的url是可以直接用来生成QR   code的，socks
     decoded_string=base64.urlsafe_b64decode(ssurl_string)  
     password_string='ZG91Yi5pbzIzMzM='  
     decoded_password=base64.urlsafe_b64decode(password_string)  
-
+{% endhighlight %}  
 
 至此，我们已经得到了正确上网的账号信息，只是这些账号信息未经连通性测试证实可用。
 

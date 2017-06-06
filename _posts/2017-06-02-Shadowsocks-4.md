@@ -5,7 +5,7 @@ tags: ["socks"]
 ---
 
 ss的gui-config.json文件是json格式的，用python自带的json模块就可以轻松读写。示例代码如下：
-
+{% highlight python %}  
     # coding=UTF-8
     # program name: print_config.py
     # usage: python print_config.py gui-config.json
@@ -26,6 +26,7 @@ ss的gui-config.json文件是json格式的，用python自带的json模块就可�
     json_data = json.load(json_f)
     json_data['index'] = 0
     json.dump(d, codecs.getwriter('utf-8')(json_f), ensure_ascii=False, indent=4, sort_keys=True )
+{% endhighlight %}  
 
 gui-config.json中'index'的值是表示'configs'中第几个账号被选中生效。
 
@@ -33,18 +34,21 @@ gui-config.json中'index'的值是表示'configs'中第几个账号被选中生�
 
 为了简化这个问题，最好是保证ss.exe是以当前用户来启动的，脚本就可以顺利地杀掉ss.exe，然后用windows cmd.exe的start命令重新启动ss.exe，start命令保证执行脚本的窗口关掉后，ss.exe不会因为是这个窗口的子进程而被关闭掉。
 
-在Python中执行这两条命令，是这样的
-
+在Python中执行这两条命令，是这样的  
+{% highlight python %}  
     import os
     os.system('taskkill /f /im +ShadowsocksR-dotnet4.0.exe')
     os.system('start C:\ShadowsocksR-4.2.3-win\ShadowsocksR-dotnet4.0.exe')
+{% endhighlight %}  
 
 无论是ss还是ssr，在windows中你都可以观察到两个进程，其中一个是Privoxy Server，Privoxy是一个开源的组件，这个进程是proxy server进程，Privoxy可以做socks server也可以是http proxy server。
 
 
 所以，当你用以下命令杀进程时会看到两个进程被杀掉，这是正常的，不要觉得奇怪。
 
-taskkill /f /im +ShadowsocksR-dotnet4.0.exe
+{% highlight bash %}  
+taskkill /f /im +ShadowsocksR-dotnet4.0.exe  
+{% endhighlight %}  
 
 当你用start命令启动ss.exe的时候，屏幕上却不会返回提示信息，悄无声息。
 
