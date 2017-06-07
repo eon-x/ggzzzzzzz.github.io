@@ -68,8 +68,7 @@ else:
 
 你可以访问网络的时候，比如说你有ss url或ssr url，或者任何要生成QR code的字符串，将这个字符串加到以下两个链接后面，就可以生成二维码。就这么简单，如果要用Python生成这个链接，你应该也会了。  
 
-{% highlight bash %} 
-    https://pan.baidu.com/share/qrcode?w=400&h=400&url=
-    
-    http://doub.pw/qr/qr.php?text=
+{% highlight bash %}
+https://pan.baidu.com/share/qrcode?w=400&h=400&url=
+http://doub.pw/qr/qr.php?text=
 {% endhighlight %}  
